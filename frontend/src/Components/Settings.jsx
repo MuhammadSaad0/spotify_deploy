@@ -25,7 +25,6 @@ export default function Settings() {
 
   async function handleDelete(e) {
     e.preventDefault();
-
     const response = await axios.delete(`https://spotify-clone-group2.herokuapp.com/settings/${email}`);
     if (response.data.body === "Success") {
       navigate("/login");
@@ -73,6 +72,13 @@ export default function Settings() {
         >
           Delete Account
         </button>
+      </div>
+      <div className="text-center">
+        <Link to="/deletesong">
+          <button type="button" id="Register" style={buttonstyle}>
+            Delete Song
+          </button>
+        </Link>
       </div>
       <div className="text-center">
         <button type="button" id="Register" style={buttonstyle} onClick={handleLogout}>

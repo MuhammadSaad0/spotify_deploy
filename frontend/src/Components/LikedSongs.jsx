@@ -141,7 +141,6 @@ export default function LikedSongs() {
     }
   }
 
-
   async function fetchdata() {
     const email = sessionStorage.getItem("email")
     const response = await axios.get(`https://spotify-clone-group2.herokuapp.com/getlikedsongs/${email}`);
