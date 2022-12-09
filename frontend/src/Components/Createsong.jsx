@@ -37,7 +37,7 @@ export default function CreateSong() {
         "songPath": songPath
       }
       console.log(data)
-      const response = await axios.post("http://localhost:5000/uploadsong", data)
+      const response = await axios.post("https://spotify-clone-group2.herokuapp.com/uploadsong", data)
       console.log("reponse:", response.data)
       if (response.data.body === "Success") {
         navigate('/dashboard')

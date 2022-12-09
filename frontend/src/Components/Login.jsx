@@ -21,13 +21,13 @@ export default function Login() {
       setEmail("")
       setPassword("")
     }
-    else{  
+    else {
       const data = {
         "email": email,
         "password": password,
       }
-      
-      const response = await axios.post("http://localhost:5000/loginform", data)
+
+      const response = await axios.post("https://spotify-clone-group2.herokuapp.com/loginform", data)
       console.log("reponse:", response.data)
       if (response.data.body === "Success") {
         sessionStorage.setItem("username", response.data.username);

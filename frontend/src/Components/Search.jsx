@@ -21,13 +21,13 @@ function Song(props) {
         email: sessionStorage.getItem("email"),
         song_id: props.song.song_id,
       };
-      const response = await axios.post(`http://localhost:5000/unlikesong`, data);
+      const response = await axios.post(`https://spotify-clone-group2.herokuapp.com/unlikesong`, data);
     } else {
       const data = {
         email: sessionStorage.getItem("email"),
         song_id: props.song.song_id,
       };
-      const response = await axios.post(`http://localhost:5000/likesong`, data);
+      const response = await axios.post(`https://spotify-clone-group2.herokuapp.com/likesong`, data);
       setLikedpng(require("./likefilled.png"));
     }
   }
@@ -67,28 +67,7 @@ export default function Search() {
       setHref("http://localhost:3000/uploadsong");
       setArtist("Upload Song");
     }
-    fetchdata()
   }, []);
-
-  async function fetchdata() {
-    const email = sessionStorage.getItem("email")
-    const response = await axios.get(`http://localhost:5000/getallsongs`);
-    const response2 = await axios.get(`http://localhost:5000/getlikedsongs/${email}`);
-    var count = 1;
-    response.data.data.forEach((song) => {
-      if (response2.data.data) {
-        for (var i = 0; i < response2.data.data.length; i++) {
-          if (response2.data.data[i].songname == song.songname) {
-            console.log("true")
-            song["liked"] = true;
-          }
-        }
-      }
-      song["count"] = count;
-      count++;
-    });
-    setSongs(response.data.data);
-  }
 
   useEffect(() => {
     setCode(
@@ -111,10 +90,12 @@ export default function Search() {
     } else {
       const keyword = search;
       const email = sessionStorage.getItem("email")
+
       const response = await axios.get(
-        `http://localhost:5000/search/${keyword}/${email}`
+        `https://spotify-clone-group2.herokuapp.com/search/${keyword}/${email}`
       );
-      const response2 = await axios.get(`http://localhost:5000/getlikedsongs/${email}`);
+
+      const response2 = await axios.get(`https://spotify-clone-group2.herokuapp.com/getlikedsongs/${email}`);
       console.log(response2.data.data)
       if (response.data.body == "Failed") {
         setMessage("Could not find the song");
@@ -125,6 +106,7 @@ export default function Search() {
         response.data.data.forEach((song) => {
           if (response2.data.data) {
             for (var i = 0; i < response2.data.data.length; i++) {
+              console.log("here")
               if (response2.data.data[i].songname == song.songname) {
                 console.log("true")
                 song["liked"] = true;
@@ -135,7 +117,7 @@ export default function Search() {
           count++;
         });
         setSongs(response.data.data);
-        console.log("songs:", songs);
+        console.log(songs);
       }
     }
   }

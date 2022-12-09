@@ -134,16 +134,17 @@ export default function LikedSongs() {
         email: sessionStorage.getItem("email"),
         song_id: selectedSong.song_id
       }
-      const response = await axios.post('http://localhost:5000/unlikesong', data)
+      const response = await axios.post('https://spotify-clone-group2.herokuapp.com/unlikesong', data)
     }
     else {
       setLikedpng(require("./likefilled.png"))
     }
   }
 
+
   async function fetchdata() {
     const email = sessionStorage.getItem("email")
-    const response = await axios.get(`http://localhost:5000/getlikedsongs/${email}`);
+    const response = await axios.get(`https://spotify-clone-group2.herokuapp.com/getlikedsongs/${email}`);
     const songs = response.data.data;
     var count = 1;
     songs.forEach((song) => {

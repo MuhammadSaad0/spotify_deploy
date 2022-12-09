@@ -38,7 +38,7 @@ function RegistrationForm() {
         usertype: checked,
       };
       console.log(data)
-      const response = await axios.post("http://localhost:5000/register", data);
+      const response = await axios.post("https://spotify-clone-group2.herokuapp.com/register", data);
       console.log("reponse:", response.data);
       if (response.data.body === "Success") {
         navigate("/login");
@@ -47,15 +47,15 @@ function RegistrationForm() {
       }
     }
   }
-  function handleChangeUser(e){
+  function handleChangeUser(e) {
     e.preventDefault()
-    if(e.target.checked){
+    if (e.target.checked) {
       setChecked("user")
     }
   }
-  function handleChangeArtist(e){
+  function handleChangeArtist(e) {
     e.preventDefault()
-    if(e.target.checked){
+    if (e.target.checked) {
       setChecked("artist")
     }
   }
