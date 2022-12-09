@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function DeleteSong() {
   const navigate = useNavigate();
-  
+
   const buttonstyle = {
     fontFamily: "Bold",
     margin: "10px",
@@ -20,24 +20,24 @@ export default function DeleteSong() {
     alignText: "center",
   };
 
-  async function handleDelete(e){
+  async function handleDelete(e) {
     e.preventDefault()
     if (!song) {
       alert("Song Cannot be empty");
     }
-    else{
-      const response = await axios.delete(`http://localhost:5000/deletesong/${sessionStorage.getItem("username")}/${song}`)
-      if (response.data.body === "Success"){
+    else {
+      const response = await axios.delete(`https://spotify-clone-group2.herokuapp.com/deletesong/${sessionStorage.getItem("username")}/${song}`)
+      if (response.data.body === "Success") {
         setMessage("Delete Successful")
         navigate("/dashboard")
       }
-      else{
+      else {
         setMessage("Delete unsuccessful, either song name is invalid or you cannot delete that song")
       }
     }
   }
 
-  const [song,setSong]= useState("")
+  const [song, setSong] = useState("")
   const [message, setMessage] = useState("")
   return (
     <div>

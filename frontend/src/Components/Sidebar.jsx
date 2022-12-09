@@ -13,23 +13,20 @@ function Sidebar() {
       <br />
       {/* <SidebarOptions title="Home" /> */}
       <strong className="sidebar_title">
-        <a href="http://localhost:3000/dashboard">HOME</a>
+        <a href="https://spotify-deploy.vercel.app/dashboard">HOME</a>
       </strong>
-      
-      <br />
-      <strong className="sidebar_title">
-        <a href="http://localhost:3000/search">SEARCH</a>
-      </strong>
-      {/* <a href="http://localhost:3000/dashboard">Home</a> */}
-      {/* <SidebarOptions title="Search" />
-      <SidebarOptions title="Your Library" /> */}
 
       <br />
       <strong className="sidebar_title">
-        <a href="http://localhost:3000/likedsongs">LIKED SONGS</a>
+        <a href="https://spotify-deploy.vercel.app/search">SEARCH</a>
+      </strong>
+
+      <br />
+      <strong className="sidebar_title">
+        <a href="https://spotify-deploy.vercel.app/likedsongs">LIKED SONGS</a>
       </strong>
       <hr />
-    
+
 
       {/* <strong className="sidebar_title">PLAYLISTS</strong>
       <hr /> */}

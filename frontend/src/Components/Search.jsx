@@ -64,7 +64,7 @@ export default function Search() {
 
   useEffect(() => {
     if (sessionStorage.getItem("usertype") === "artist") {
-      setHref("http://localhost:3000/uploadsong");
+      setHref("https://spotify-deploy.vercel.app/uploadsong");
       setArtist("Upload Song");
     }
   }, []);
@@ -147,7 +147,7 @@ export default function Search() {
               <div className="header_right">
                 {/* <Avatar src= "" alt="Amna Sahar" /> */}
                 <a href={href}>{artist}</a>
-                <a href="http://localhost:3000/settings">{username}</a>
+                <a href="https://spotify-deploy.vercel.app/settings">{username}</a>
               </div>
             </div>
             <h3 className="my-5">{message}</h3>
